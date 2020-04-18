@@ -9,6 +9,7 @@ namespace Blog.Tests
     public class BlogShould
     {
         private readonly Core.Blog _sut;
+        //TODO: 01 - Set Objects
         private readonly Post _postToSearch = new Post("Primer post", "Test", DateTime.Now.AddDays(-5));
         public BlogShould()
         {
@@ -22,6 +23,7 @@ namespace Blog.Tests
                 });
         }
 
+        //TODO: 02 - Add DisplayName
         [Fact(DisplayName = "Throws Exception, Parameter is null")]
         public void Throws_Exception_Parameter_Null()
         {
@@ -41,6 +43,7 @@ namespace Blog.Tests
             existPost.Should().BeTrue();
         }
 
+        //TODO: 03 - InlineData
         [Theory(DisplayName = "Return False, Post Does not Exist")]
         [InlineData("Bad Post")]
         [InlineData("Post Test")]

@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Blog.Core
 {
-    public class Blog
+    public class User
     {
-        public string Title { get; set; }
-        public IReadOnlyCollection<Post> Posts => _posts.AsReadOnly();
-        private readonly List<Post> _posts = new List<Post>();
+        public string Email { get; }
+    }
+
+    public interface IBlog
+    {
+        string Title { get; }
+    }
+
+    public class Blog : IBlog
+    {
+        public string Title { get; }
+        public List<Post> Posts { get; set; }
 
         public Blog(string title, List<Post> posts)
         {
-            _posts = posts;
+            Posts = posts;
             Title = title;
         }
 
@@ -26,7 +36,7 @@ namespace Blog.Core
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentNullException(nameof(title));
 
-            return _posts.Any(x => x.Title.ToUpper() == title.ToUpper());
+            return Posts.Any(x => x.Title.ToUpper() == title.ToUpper());
         }
 
 

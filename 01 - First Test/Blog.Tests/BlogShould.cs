@@ -6,12 +6,15 @@ using Xunit;
 
 namespace Blog.Tests
 {
+    //TODO: 01 - Name of class
     public class BlogShould
     {
+        //TODO: 02 - Name of Object
         private readonly Core.Blog _sut;
 
         public BlogShould()
         {
+            //TODO: 03 -Initialization
             _sut = new Core.Blog("Primer Blog",
                 new List<Post>
                 {
@@ -34,10 +37,14 @@ namespace Blog.Tests
         [Fact]
         public void Return_True_Post_Exists()
         {
+            //TODO : 04 - Structure - FluentAssertions
+            //arrange
             bool existPost = default;
 
+            //act
             existPost = _sut.ExistPost("Primer post");
 
+            //assert
             existPost.Should().BeTrue();
         }
 
@@ -47,6 +54,7 @@ namespace Blog.Tests
             bool existPost = default;
 
             existPost = _sut.ExistPost("Test");
+
 
             existPost.Should().BeFalse();
         }

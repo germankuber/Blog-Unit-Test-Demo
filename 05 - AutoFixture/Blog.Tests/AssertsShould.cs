@@ -10,7 +10,7 @@ namespace Blog.Tests
 {
     public class AssertsShould
     {
-        //TODO: 01 - Asserts
+
 
         [Fact]
         public void Match_String()
